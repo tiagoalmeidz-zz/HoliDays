@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Holiday, HolidaysType } from './holidays.model';
 import { v4 as uuidv4 } from 'uuid';
+import { CreateHolidayDto } from './dto/create-holiday.dto';
 
 @Injectable()
 export class HolidaysService {
@@ -10,7 +11,9 @@ export class HolidaysService {
     return this.holidays;
   }
 
-  createHoliday(name: string, date: Date) {
+  createHoliday(createHolidayDto: CreateHolidayDto) {
+    const { name, date } = createHolidayDto;
+
     const holiday: Holiday = {
       id: uuidv4(),
       name,

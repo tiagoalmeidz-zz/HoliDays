@@ -1,4 +1,4 @@
-export class createHolidayDto {
+export class CreateHolidayDto {
   name: string;
   date: Date;
 }
