@@ -11,7 +11,8 @@ export class HolidaysController {
   }
 
   @Post()
-  createHoliday(@Body() body) {
-    console.log('body', body);
+  createHoliday(@Body('name') name: string, @Body('date') date: Date) {
+    console.log('Feriado', name);
+    console.log('Data', date);
   }
 }
