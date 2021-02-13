@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CreateHolidayDto } from './dto/create-holiday.dto';
 import { HolidaysService } from './holidays.service';
 
@@ -14,5 +14,10 @@ export class HolidaysController {
   @Post()
   createHoliday(@Body() createHolidayDto: CreateHolidayDto) {
     return this.holidaysService.createHoliday(createHolidayDto);
+  }
+
+  @Get('/:id')
+  getHolidayById(@Param('id') id: string) {
+    return this.holidaysService.getHolidayById(id);
   }
 }

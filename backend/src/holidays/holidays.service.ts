@@ -24,4 +24,8 @@ export class HolidaysService {
     this.holidays.push(holiday);
     return holiday;
   }
+
+  getHolidayById(id: string): Holiday {
+    return this.holidays.find((holiday) => holiday.id == id);
+  }
 }
