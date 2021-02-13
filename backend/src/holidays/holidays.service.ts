@@ -32,4 +32,12 @@ export class HolidaysService {
   deleteHoliday(id: string): void {
     this.holidays = this.holidays.filter((holiday) => holiday.id !== id);
   }
+
+  updateHoliday(id: string, name: string, date: Date): Holiday {
+    const holiday = this.getHolidayById(id);
+    holiday.name = name;
+    holiday.date = date;
+
+    return holiday;
+  }
 }

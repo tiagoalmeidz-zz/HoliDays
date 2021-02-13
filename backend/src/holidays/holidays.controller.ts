@@ -1,5 +1,14 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+} from '@nestjs/common';
 import { CreateHolidayDto } from './dto/create-holiday.dto';
+import { Holiday } from './holidays.model';
 import { HolidaysService } from './holidays.service';
 
 @Controller('holidays')
@@ -24,5 +33,14 @@ export class HolidaysController {
   @Delete('/:id')
   deleteHoliday(@Param('id') id: string) {
     this.holidaysService.deleteHoliday(id);
+  }
+
+  @Patch('/:id')
+  updateHoliday(
+    @Param('id') id: string,
+    @Body('name') name: string,
+    @Body('date') date: Date,
+  ): Holiday {
+    return this.holidaysService.updateHoliday(id, name, date);
   }
 }
