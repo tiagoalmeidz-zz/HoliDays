@@ -28,4 +28,8 @@ export class HolidaysService {
   getHolidayById(id: string): Holiday {
     return this.holidays.find((holiday) => holiday.id == id);
   }
+
+  deleteHoliday(id: string): void {
+    this.holidays = this.holidays.filter((holiday) => holiday.id !== id);
+  }
 }

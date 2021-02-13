@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { CreateHolidayDto } from './dto/create-holiday.dto';
 import { HolidaysService } from './holidays.service';
 
@@ -19,5 +19,10 @@ export class HolidaysController {
   @Get('/:id')
   getHolidayById(@Param('id') id: string) {
     return this.holidaysService.getHolidayById(id);
+  }
+
+  @Delete('/:id')
+  deleteHoliday(@Param('id') id: string) {
+    this.holidaysService.deleteHoliday(id);
   }
 }
