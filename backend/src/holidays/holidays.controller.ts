@@ -20,19 +20,14 @@ export class HolidaysController {
     return this.holidaysService.getAllHolidays();
   }
 
-  @Post()
-  createHoliday(@Body() createHolidayDto: CreateHolidayDto) {
-    return this.holidaysService.createHoliday(createHolidayDto);
-  }
-
   @Get('/:id')
   getHolidayById(@Param('id') id: string) {
     return this.holidaysService.getHolidayById(id);
   }
 
-  @Delete('/:id')
-  deleteHoliday(@Param('id') id: string) {
-    this.holidaysService.deleteHoliday(id);
+  @Post()
+  createHoliday(@Body() createHolidayDto: CreateHolidayDto) {
+    return this.holidaysService.createHoliday(createHolidayDto);
   }
 
   @Patch('/:id')
@@ -42,5 +37,10 @@ export class HolidaysController {
     @Body('date') date: Date,
   ): Holiday {
     return this.holidaysService.updateHoliday(id, name, date);
+  }
+
+  @Delete('/:id')
+  deleteHoliday(@Param('id') id: string) {
+    this.holidaysService.deleteHoliday(id);
   }
 }
