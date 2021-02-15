@@ -8,19 +8,11 @@ import {
   Patch,
 } from '@nestjs/common';
 import { CreateHolidayDto } from './dto/create-holiday.dto';
-//import { Holiday } from './holidays.model';
 import { HolidaysService } from './holidays.service';
 import { Holiday } from './holiday.entity';
 @Controller('holidays')
 export class HolidaysController {
-  //passamos como um parâmetro no construtor;
-  //assim qualquer método dessa classe consegue ter acesso a ele;
   constructor(private holidaysService: HolidaysService) {}
-
-  //  @Get()
-  //   getAllHolidays(): Holiday[]{
-  //     return this.holidaysService.getAllHolidays();
-  //   }
 
   @Get('/:id')
   getHolidayById(@Param('id') id: number): Promise<Holiday> {
