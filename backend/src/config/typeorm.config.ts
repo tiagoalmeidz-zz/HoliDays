@@ -5,8 +5,8 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
   host: 'localhost',
   port: 3306,
   username: 'tiago',
-  password: '', //process.env.DATABASE_PASSWORD,
+  password: 'Tigas@93',
   database: 'holidays',
-  entities: [__dirname + '/../**/*.entity.json'],
+  entities: [__dirname + '/../**/*.entity.js'],
   synchronize: true,
 };
